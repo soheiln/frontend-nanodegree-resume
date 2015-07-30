@@ -32,6 +32,11 @@ var bio = {
     $("#topContacts").append(formattedTwitter);
     $("#topContacts").append(formattedGithub);
     $("#topContacts").append(formattedLocation);
+    $("#footerContacts").append(formattedMobile);
+    $("#footerContacts").append(formattedEmail);
+    $("#footerContacts").append(formattedTwitter);
+    $("#footerContacts").append(formattedGithub);
+    $("#footerContacts").append(formattedLocation);
 
     var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
     var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
@@ -39,12 +44,12 @@ var bio = {
     $("#header").append(formattedBioPic);
     $("#header").append(formattedWelcomeMsg);
     $("#header").append(HTMLskillsStart);
-    for(skill in bio.skills){
+    for(var skill in bio.skills){
       var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
       $("#header").append(formattedSkill);
     }
   }
-}
+};
 
 var education = {
   "schools": [
@@ -75,7 +80,7 @@ var education = {
   ],
   "display": function addEducationInfo() {
     //adding schools
-    for (school in education.schools) {
+    for (var school = 0; school < education.schools.length; school++) {
       var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[school].name);
       var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
       var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
@@ -87,7 +92,7 @@ var education = {
       educationEntry.append(formattedSchoolDates);
       educationEntry.append(formattedSchoolLocation);
 
-      for (major in education.schools[school].majors) {
+      for (var major in education.schools[school].majors) {
         var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.schools[school].majors[major]);
         educationEntry.append(formattedSchoolMajor);
       }
@@ -97,7 +102,7 @@ var education = {
     if (education.onlineCourses.length > 0) {
       $("#education").append(HTMLonlineClasses);
     };
-    for (course in education.onlineCourses) {
+    for (var course in education.onlineCourses) {
       var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[course].title);
       var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[course].school);
       var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[course].date);
@@ -110,7 +115,7 @@ var education = {
       educationEntry.append(formattedOnlineURL);
     }
   }
-}
+};
 
 var work = {
   "jobs": [
@@ -130,7 +135,7 @@ var work = {
     }
   ],
   "display": function() {
-    for (job in work.jobs) {
+    for (var job in work.jobs) {
       var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
       var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
       var formattedWorkDate = HTMLworkDates.replace("%data%", work.jobs[job].dates);
@@ -145,7 +150,7 @@ var work = {
       workEntry.append(formattedWorkDescription);
     }
   }
-}
+};
 
 var project = {
   "projects": [
@@ -160,7 +165,7 @@ var project = {
     }
   ],
   "display": function() {
-    for (proj in project.projects) {
+    for (var proj in project.projects) {
       var formattedProjectTitle = HTMLprojectTitle.replace("%data%", project.projects[proj].title);
       var formattedProjectDates = HTMLprojectDates.replace("%data%", project.projects[proj].dates);
       var formattedProjectDescription = HTMLprojectDescription.replace("%data%", project.projects[proj].description);
@@ -170,13 +175,13 @@ var project = {
       projectEntry.append(formattedProjectDates);
       projectEntry.append(formattedProjectDescription);
 
-      for (image in project.projects[proj].images) {
+      for (var image in project.projects[proj].images) {
         var formattedProjectImage = HTMLprojectImage.replace("%data%", project.projects[proj].images[image]);
         projectEntry.append(formattedProjectImage);
       }
     }
   }
-}
+};
 
 
 
